@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>মাদ্রাসা দারুল আরকাম</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Siyam Rupali, Arial, "sans-serif";
+      background-color: #f0f2f5;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #2f0f1d, #50213d);
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+    header p {
+      font-size: 48px;
+      margin: 0;
+      font-weight: bold;
+    }
+    header h2 {
+      font-size: 22px;
+      margin-top: 8px;
+    }
+    .highlight {
+      color: #ff4444;
+    }
+    .content {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .welcome {
+      background-color: #d9fdd3;
+      color: #007e33;
+      font-size: 48px;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .subtext {
+      font-size: 28px;
+      margin: 10px 0;
+    }
+    .info-btn {
+      padding: 15px 30px;
+      background: #28a745;
+      color: white;
+      font-size: 22px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .info-btn:hover {
+      background: #218838;
+    }
+    .databtn {
+      display: block;
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 25px;
+      font-size: 36px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(to right, #1e7e34, #20c997);
+      color: white;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+      transition: transform 0.2s;
+    }
+    .databtn:hover {
+      transform: scale(1.02);
+    }
+    .crossbtn {
+      float: right;
+      background: #dc3545;
+      color: white;
+      width: 45px;
+      height: 45px;
+      font-size: 24px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+    }
+    .text-box {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: justify;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    hr {
+      border: none;
+      height: 2px;
+      background-color: #28a745;
+      margin: 30px 0;
+    }
+    @media (max-width: 768px) {
+      .databtn {
+        font-size: 28px;
+        padding: 20px;
+      }
+      .welcome {
+        font-size: 36px;
+      }
+      .subtext {
+        font-size: 22px;
+      }
+    }
+   .more{
+       background: gray;
+       color: black;
+       border: none;
+       border-radius: 5px;
+   }
+  </style>
+  <style>
+      #popupMenu {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background-color: pink;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(2, 2, 0, 0.2);
+  padding: 10px 0;
+  display: none;
+  z-index: 9999;
+  min-width: 180px;
+  text-align: left;
+}
+
+.popupMenubutton {
+  display: flex;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: 1px solid lightpink;
+  border-radius: 20px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+#popupMenu button:hover {
+  background-color: lightpink;
+}
+.vip{
+  display: flex;
+  width: 80px;
+ 
+  padding: 12px 16px;
+  background: lightyellow;
+  border: 1px solid lightpink;
+  border-radius: 90px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.textMessage{
+    padding: 40px;
+    color: red;
+    height: 600px;
+    width: 350px;
+    font-size: 16px;
+    background: lightcyan;
+    border-radius: 20px;
+    border: none;
+    font-weight: none;
+    margin: 30px auto;
+     }
+.massageSendbtn{
+    color: green;
+    border: 2px solid green;
+    background: lightyellow;
+    padding: 5px;
+    border-radius: 8px;
+    width: 350px;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+      
+      
+      <div id="popupMenu">
+  <button onclick="location.reload()" class="popupMenubutton">🏠 হোম</button>
+  <button onclick="showInfo()"class="popupMenubutton">ℹ️ আমাদের সম্পর্কে</button>
+  <button onclick="sixth()"class="popupMenubutton">📝 ভর্তি</button>
+  <button onclick="fourth()"class="popupMenubutton">☎️ যোগাযোগ</button>
+<button onclick="fifth()"class="popupMenubutton">👨‍🏫 শিক্ষকবৃন্দ</button>
+<table border="0" cellpadding="5px" cellspacing="0" align="center">
+  <tr>
+    <td style="text-align: center">
+      <a href="tel:017xxxxxxxx" class="vip">☎️</a>
+    </td>
+    <td>
+     <a href="#" onclick="vipMessage()" class="vip">💬</a>
+     </td>
+  </tr>
+</table></div>
+      
+      
+      
+      
+      
+          <div style="text-align: right"><button onclick="more()" class="more">
+          ... 
+          </button></div>
+    <p><span class="highlight">MADRASHA</span> DARUL ARQAM</p>
+    <h2>Founder & Director: <span style="color: yellow;">Hafez Qari MD. Najmul Hasan</span></h2>
+  </header>
+
+  <div class="content" id="mainContent">
+    <p class="welcome">স্বাগ<span class="highlight">ত</span><span style="color: blue;">ম</span><span style="color: orange;">!</span></p>
+    <p class="subtext">আসুন, দেখুন, পরিদর্শন করুন</p>
+    <p class="subtext highlight">অতঃপর সিদ্ধান্ত নিন!</p>
+    <button class="info-btn" onclick="showInfo()">আমাদের সম্পর্কে জানুন</button>
+  </div>
+
+  <script>
+    function insertHTML(html) {
+      document.getElementById("mainContent").innerHTML = html;
+    }
+
+    function showInfo() {
+      insertHTML(`
+        <button onclick="location.reload()" class="crossbtn">×</button>
+        <hr>
+        <button onclick="first()" class="databtn">📌 নাম ও পরিচিতি</button>
+        <button onclick="second()" class="databtn">📍 অবস্থান ও পরিবেশ</button>
+        <button onclick="third()" class="databtn">📚 শিক্ষা কার্যক্রম</button>               
+      `);
+    }
+
+    function first() {
+      insertHTML(`
+        <button onclick="showInfo()" class="crossbtn">×</button>
+        <div class="text-box">
+          <h2>📌 মাদ্রাসার নাম ও পরিচিতি</h2>
+          <p>মাদ্রাসা দারুল আরকাম একটি সুপ্রতিষ্ঠিত ইসলামি শিক্ষাপ্রতিষ্ঠান, যা ২০২৩ সালে ইসলামী জ্ঞান, নৈতিকতা ও আধুনিক শিক্ষার সমন্বয়ে শিক্ষার্থীদের উপযোগী করে গড়ে তোলার লক্ষ্যে প্রতিষ্ঠিত হয়। প্রতিষ্ঠানটি এমন একটি পাঠক্রম চালু করেছে, যেখানে ধর্মীয় শিক্ষার পাশাপাশি আধুনিক বিজ্ঞান, তথ্যপ্রযুক্তি ও জীবনঘনিষ্ঠ দক্ষতাও সমান গুরুত্ব পায়।
+
+এখানে ছাত্রদেরকে শুধু কুরআন-সুন্নাহভিত্তিক ধর্মীয় জ্ঞানই প্রদান করা হয় না, বরং তাদের মধ্যে নৈতিক চরিত্র গঠন, সমাজে নেতৃত্ব দেওয়ার ক্ষমতা এবং প্রযুক্তির যুগে টিকে থাকার জন্য প্রয়োজনীয় জ্ঞান ও দক্ষতা অর্জনের সুযোগও সৃষ্টি করা হয়।</p>
+          <h3 style="color: brown;">উদ্দেশ্য ও লক্ষ্য:</h3>
+          <ul>
+            <li>ইসলামী মূল্যবোধ ও কুরআন-সুন্নাহভিত্তিক জীবন গঠনের পরিবেশ তৈরি।</li>
+            <li>আধুনিক প্রযুক্তি জ্ঞানে শিক্ষার্থীদের দক্ষ করে গড়ে তোলা।</li>
+            <li>সমাজে নেতৃত্বদানের যোগ্য নাগরিক তৈরি।</li>
+            <li>ছাত্রদের মাঝে কুরআন ও সুন্নাহভিত্তিক পরিপূর্ণ জীবনযাপনের আদর্শ তৈরি করা।</li>
+            <li>তথ্যপ্রযুক্তি ও আধুনিক বিজ্ঞানে শিক্ষার্থীদের দক্ষতা অর্জনের ব্যবস্থা রাখা।
+</li>
+            <li>শিক্ষার্থীদের মধ্যে মানবিক গুণাবলি ও সমাজের কল্যাণে কাজ করার মনোভাব গড়ে তোলা।
+</li>
+          </ul>
+        </div>
+      `);
+    }
+
+    function second() {
+      insertHTML(`
+        <button onclick="showInfo()" class="crossbtn">×</button>
+        <div class="text-box">
+          <h2>📍 অবস্থান ও পরিবেশ</h2>
+          <p>মাদ্রাসা দারুল আরকাম নারায়ণগঞ্জ জেলার সিদ্ধিরগঞ্জ উপজেলার মাদানীনগর এলাকার এক শান্ত, ছায়াঘেরা এলাকায় অবস্থিত। শহরের কোলাহল থেকে কিছুটা দূরে, সবুজের স্নিগ্ধ ছায়ায় ঘেরা এই স্থানটি শিক্ষা অর্জনের জন্য এক অনন্য পরিবেশ সৃষ্টি করেছে।
+
+প্রতিষ্ঠানটির চারপাশজুড়ে ছায়াদানকারী বৃক্ষরাজি, নির্মল বাতাস এবং প্রাকৃতিক সৌন্দর্যের এক অপূর্ব সংমিশ্রণ বিদ্যমান, যা শিক্ষার্থীদের মানসিক প্রশান্তি ও মনোযোগ ধরে রাখার জন্য অত্যন্ত সহায়ক। এখানকার নিরিবিলি পরিবেশ শুধু যে পড়াশোনার মনোযোগ বাড়ায় তা-ই নয়, বরং ছাত্রদের নৈতিক উন্নয়ন ও আত্মিক প্রশান্তিতেও গুরুত্বপূর্ণ ভূমিকা রাখে।
+
+মাদ্রাসা প্রাঙ্গণটি সম্পূর্ণ নিরাপদ এবং সুরক্ষিত, যেখানে শিক্ষার্থীরা নিশ্চিন্তে শিক্ষা ও চরিত্র গঠনে মনোনিবেশ করতে পারে। প্রাতিষ্ঠানিক নিরাপত্তা, নিয়মিত পর্যবেক্ষণ, ও অভিভাবক-শিক্ষক সমন্বয়ে গঠিত পরিবেশ শিক্ষার্থীদের সর্বোচ্চ মানের শিক্ষা নিশ্চিত করতে সহায়তা করে।</p>
+<br>
+<h3>এছাড়াও রয়েছে—</h3>
+<ul type="circle">
+    <li>📚 পরিপাটি ও সুসজ্জিত শ্রেণিকক্ষ।
+</li>
+    <li>📖 পাঠের উপযোগী নীরব ও সাজানো পরিবেশ।</li>
+    <li>🛏 পরিষ্কার-পরিচ্ছন্ন আবাসন ব্যবস্থা।</li>
+    
+</ul>
+        </div>
+      `);
+    }
+
+    function third() {
+      insertHTML(`
+        <button onclick="showInfo()" class="crossbtn">×</button>
+        <div class="text-box">
+          <h2>📚শিক্ষা কার্যক্রম</h2>
+          <h3 style="color: brown;">বিভাগসমূহ:-</h3>
+          <ul>
+            <li>আন্তর্জাতিক-মানের হিফজুল কুরআন বিভাগ</li>
+            <li>আদর্শ নূরানী ও নাজেরা বিভাগ</li>
+            <li>মানসম্মত মাদানী নেসাব<sub>(১ম বর্ষ থেকে ৩য় বর্ষ পর্যন্ত)</sub> </li>
+            <li>মান-উপযোগী হিফজ শুনানী বিভাগ</li>
+          </ul>
+          <p>শিক্ষার্থীদের শৃঙ্খলা রক্ষায় ও মূল্যায়নে বছরে তিনবার সেমিস্টার পরীক্ষা নেয়া হয়।</p>
+          <ul type="square">
+              <li>এই মাদ্রাসা দেশবরেন্য উলামাদের দ্বারা পরিচালিত হয়। তন্মধ্যে মাদানীনেসাবের উজ্জ্বল নক্ষত্র <span style="color: green;">হযরত মাওলানা আরিফ হক্কানি সাহেব <sub>(ঢাকার হুজুর)</sub></span> এবং মাদানীনগর মাদ্রাসার সিনিয়র মুহাদ্দিস  <span style="color: green;">হযরত মাওলানা মাহমুদুল হাসান সাহেব</span> উল্লেখযোগ্য।</li>
+          </ul>
+        </div>
+      `);
+    }
+
+    function fourth() {
+      insertHTML(`
+        <button onclick="showInfo()" class="crossbtn">×</button>
+        <div class="text-box">
+          <h2>☎️ যোগাযোগ</h2>
+          <ul>
+            <li>📞 মোবাইল: ০১৭xxxxxxxx</li>
+            <li>🏠 ঠিকানা: মাদানীনগর, সিদ্ধিরগঞ্জ, নারায়ণগঞ্জ</li>
+            <li>🌐 ওয়েবসাইট:  <u><a href="">official website</a></u></li>
+            <li>📧 ইমেইল: info@darularqam.com</li>
+          </ul>
+        </div>
+      `);
+    }
+
+    function fifth() {
+      insertHTML(`
+        <button onclick="showInfo()" class="crossbtn">×</button>
+        <div class="text-box">
+          <h2>👨‍🏫 শিক্ষকবৃন্দ</h2>
+          <ul>
+            <li>মুহতামিম: হাফেজ ক্বারী মোঃ নাজমুল হাসেন </li>
+            <h4>অন্যান্য শিক্ষকবৃন্দ: </h4>
+            <li>মুফতি রাকিব যাকারিয়া</li>
+            <li>মুফতি মুস্তফা কামাল</li>
+            <li>হাফেজ মাওলানা মুহাম্মদ সাহেব দাঃবাঃ</li>
+            <li>হাফেজ মাওলানা আবু উবাইদা কাসেমী সাহেব</li>
+            <li>হাফেজ মাওলানা আরমান সাহেব </li>
+          </ul>
+        </div>
+      `);
+    }
+
+    function sixth() {
+      insertHTML(`
+        <button onclick="showInfo()" class="crossbtn">×</button>
+        <div class="text-box">
+          <h2>📝 ভর্তি তথ্য</h2>
+          <p>ভর্তির জন্য প্রাথমিকভাবে মৌখিক ও লিখিত পরীক্ষা নেওয়া হয়। আবেদনপত্র ও ফরম অফিস থেকে সংগ্রহ করা যাবে।</p>
+        </div>
+      `);
+    }
+  </script>
+  <script>
+      function more() {
+  const menu = document.getElementById("popupMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+// বাইরে ক্লিক করলে popup বন্ধ হবে
+document.addEventListener("click", function(event) {
+  const popup = document.getElementById("popupMenu");
+  const button = event.target.closest("button.more");
+
+  if (!popup.contains(event.target) && !button) {
+    popup.style.display = "none";
+  }
+});
+
+</script>
+<script>
+  function vipMessage() {
+    insertHTML(`
+      <form onsubmit="return openSMS()">
+        <p style="color: green; font-weight: bold; font-size: 20px; text-align: left;">এখানে মেসেজ লিখুন:-</p>
+        <textarea id="sendMessage" class="textMessage" placeholder="Text here..."></textarea><br><br>
+        <div style="text-align: right;">
+          <button type="submit" class="massageSendbtn">Send</button>
+        </div>
+      </form>
+    `);
+  }
+
+  function openSMS() {
+    const number = "017xxxxxxxxx"; // এখানেই ফোন নাম্বার ঠিক করে দাও
+    const message = encodeURIComponent(document.getElementById("sendMessage").value.trim());
+    if (message) {
+      window.location.href = `sms:${number}?body=${message}`;
+    } else {
+      alert("দয়া করে আগে একটি মেসেজ লিখুন।");
+    }
+    return false; // prevent actual form submit
+  }
+</script></body>
+</html>
